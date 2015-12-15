@@ -1,0 +1,66 @@
+Functionality:
+
+	Status
+		Shows list of bins and their contents
+		Shows list of currently open POs - allows to cancel
+		
+	Add PO
+		Create list of products and quantities
+		Give PO number
+		
+	Receive Shipment
+		Find PO by PO number
+		Compare ordered quantities to received quantites
+		Add quantities to product, warehouse databases
+		
+	Create Order
+		Choose product and quantity
+		Add job number
+		Add to job database
+		
+	Modify Inventory
+		Select bin, verify quantity present
+		
+	Database
+		Add product to product database
+
+Databases
+
+	Product Database
+	PO Database
+	Warehouse Database
+	Job Database
+	
+The product database should include the following information:
+
+Product Name
+Product SKU
+Total Quantity On Hand
+Pieces/Pallet
+List of Bins With This Ware
+
+The database stores information about each product on three lines.
+The Product Name is a string on the first line.
+The SKU and other quantities are on the second, in the order above.
+The third alternated between strings and integers, 
+representing bin name and quantity there.
+
+
+The PO database should have the following information:
+
+PO Number
+List of Ware SKUs and Quantities to be received
+
+
+Warehouse database should have the following information:
+
+Bin name (string)
+SKU of product stored there
+Quantity of that item
+
+
+Job Database:
+
+Job number
+Product SKU
+Quantity

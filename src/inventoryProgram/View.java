@@ -5,67 +5,107 @@ import java.awt.event.*;
 
 public class View {
 
-   private Frame frame; 
-   private Frame POFrame;
-   private Frame shipmentFrame;
-   private Frame orderFrame;
-   private Frame stagingFrame;
-   private Frame scrapFrame;
-   private Panel navigationPanel;
+    private Frame programFrame; 
+    
+    private Panel navigationPanel;
+    private Panel addProductPanel;
 
-   public View(){
+    public View(){
 
-   }
+    }
 
-   public static void main(String[] args){
+    public static void main(String[] args){
 	   
-   }
+    }
 
-   public void prepareGUI(ActionListener buttonListener){
-      frame = new Frame("Loux Inventory System");
-      frame.setSize(640,480);
-      frame.setLayout(new GridLayout(3, 1));
-      
-      frame.addWindowListener(new WindowAdapter() {
-         public void windowClosing(WindowEvent windowEvent){
-            System.exit(0);
-         }        
-      });    
+    public void prepareGUI(ActionListener buttonListener){
 
-      navigationPanel = new Panel();
-      navigationPanel.setLayout(new FlowLayout());
+    	programFrame = new Frame("Loux Inventory System");
+    	programFrame.setSize(720,540);
+    	programFrame.setLayout(new FlowLayout());
+    	
+	   	programFrame.addWindowListener(new WindowAdapter() {
+	   		public void windowClosing(WindowEvent windowEvent){
+	   			System.exit(0);
+	   		}        
+	   	});    
+    	
+	   	navigationPanel = new Panel();
+      	navigationPanel.setLayout(new FlowLayout());
       
-      Button addPOButton = new Button("Add PO");
-      addPOButton.setActionCommand("Add PO");
-      addPOButton.addActionListener(buttonListener);
-      navigationPanel.add(addPOButton);
+      	Button statusButton = new Button("Status");
+      	statusButton.setActionCommand("Status");
+      	statusButton.addActionListener(buttonListener);
+      	navigationPanel.add(statusButton);
       
-      Button receiveShipmentButton = new Button("Receive Shipment");
-      receiveShipmentButton.setActionCommand("Receive");
-      receiveShipmentButton.addActionListener(buttonListener);
-      navigationPanel.add(receiveShipmentButton);
+      	Button addPOButton = new Button("Add PO");
+      	addPOButton.setActionCommand("Add PO");
+      	addPOButton.addActionListener(buttonListener);
+      	navigationPanel.add(addPOButton);
       
-      Button newJobButton = new Button("Create New Job");
-      newJobButton.setActionCommand("New Job");
-      newJobButton.addActionListener(buttonListener);
-      navigationPanel.add(newJobButton);
+      	Button receiveShipmentButton = new Button("Receive Shipment");
+      	receiveShipmentButton.setActionCommand("Receive");
+      	receiveShipmentButton.addActionListener(buttonListener);
+      	navigationPanel.add(receiveShipmentButton);
       
-      Button stagedButton = new Button("Mark Job Staged");
-      stagedButton.setActionCommand("Mark Staged");
-      stagedButton.addActionListener(buttonListener);
-      navigationPanel.add(stagedButton);
+      	Button newJobButton = new Button("Create New Job");
+      	newJobButton.setActionCommand("New Job");
+      	newJobButton.addActionListener(buttonListener);
+      	navigationPanel.add(newJobButton);
       
-      Button scrapButton = new Button("Scrap Out Ware");
-      scrapButton.setActionCommand("Scrap");
-      scrapButton.addActionListener(buttonListener);
-      navigationPanel.add(scrapButton);
+      	Button scrapButton = new Button("Scrap Out Ware");
+      	scrapButton.setActionCommand("Scrap");
+      	scrapButton.addActionListener(buttonListener);
+      	navigationPanel.add(scrapButton);
       
-      frame.add(navigationPanel);
-      frame.setVisible(true);
-   }
-   
-   public void setPOPanel() {
-	   frame.removeAll();
-	   frame.add(navigationPanel);
-   }
+      	Button databaseButton = new Button("Database");
+      	databaseButton.setActionCommand("Database");
+      	databaseButton.addActionListener(buttonListener);
+      	navigationPanel.add(databaseButton);
+      
+      	programFrame.add(navigationPanel);
+      	
+      	addProductPanel = new Panel();
+      	addProductPanel.setLayout(new FlowLayout());
+      	
+      	
+      	
+        programFrame.setVisible(true);
+    }
+
+    public void setStatusPanel() {
+
+	    programFrame.removeAll();
+	    programFrame.add(navigationPanel);
+    }
+    
+    public void setPOPanel() {
+    	
+	    programFrame.removeAll();
+	    programFrame.add(navigationPanel);
+    }
+    
+    public void setShipmentPanel() {
+
+	    programFrame.removeAll();
+	    programFrame.add(navigationPanel);
+    }
+    
+    public void setOrderFrame() {
+
+	    programFrame.removeAll();
+	    programFrame.add(navigationPanel);
+    }
+    
+    public void setScrapFrame() {
+
+	    programFrame.removeAll();
+	    programFrame.add(navigationPanel);
+    }
+    
+    public void setDatabaseFrame() {
+
+	    programFrame.removeAll();
+	    programFrame.add(navigationPanel);
+    }
 }
